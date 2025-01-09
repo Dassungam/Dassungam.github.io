@@ -34,7 +34,7 @@ const boatFriction = 0.98; // Adjusted friction
 const boatMaxSpeed = 7; // Increased maximum speed
 
 // Station properties
-let stationDisplayWidth = Math.min(canvas.width, canvas.height) * 0.5; // Initial display width of the station on the canvas
+let stationDisplayWidth = Math.min(canvas.width, canvas.height) * 0.8; // Initial display width of the station on the canvas
 let stationDisplayHeight = stationDisplayWidth; // Initial display height of the station on the canvas
 
 // Function to resize canvas to fit the window
