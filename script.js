@@ -21,8 +21,8 @@ const waterTexture = new Image();
 waterTexture.src = "Water.png"; // Updated water texture
 
 // Boat properties
-let boatX = 100; // Start at a different position (e.g., top-left corner)
-let boatY = 100; // Start at a different position (e.g., top-left corner)
+let boatX = canvas.width / 2 - boatDisplayWidth / 2; // Start in der Mitte des Canvas
+let boatY = canvas.height / 2 - boatDisplayHeight / 2; // Start in der Mitte des Canvas
 const boatDisplayWidth = 80; // Display width of the boat on the canvas
 let boatDisplayHeight; // Display height will be calculated based on the image's aspect ratio
 let boatVx = 0;
@@ -34,7 +34,7 @@ const boatFriction = 0.98; // Adjusted friction
 const boatMaxSpeed = 7; // Increased maximum speed
 
 // Station properties
-let stationDisplayWidth = Math.min(canvas.width, canvas.height) * 0.8; // Initial display width of the station on the canvas
+let stationDisplayWidth = Math.min(canvas.width, canvas.height) * 0.5; // Initial display width of the station on the canvas
 let stationDisplayHeight = stationDisplayWidth; // Initial display height of the station on the canvas
 
 // Function to resize canvas to fit the window
