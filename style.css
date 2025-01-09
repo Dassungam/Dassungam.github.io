@@ -28,8 +28,9 @@ body {
     width: 90%;
     font-size: 14px;
     z-index: 1000; /* Popup unter den mobilen Steuerelementen */
-    overflow-y: auto; /* Scrollen, falls der Inhalt zu groß ist */
+    overflow: auto; /* Scrollen, falls der Inhalt zu groß ist (sowohl vertikal als auch horizontal) */
     max-height: 70vh; /* Begrenze die Höhe des Popups */
+    max-width: 90vw; /* Begrenze die Breite des Popups */
 }
 
 .hidden {

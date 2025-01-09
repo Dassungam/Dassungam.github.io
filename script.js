@@ -9,13 +9,13 @@ const stationImg = new Image();
 stationImg.src = "Station.png"; // Berufliche Erfahrung
 
 const demoImg = new Image();
-demoImg.src = "Demo.png"; // Ehrenamtliches Engagement
+demoImg.src = "Engagement.png"; // Ehrenamtliches Engagement
 
 const schuleImg = new Image();
 schuleImg.src = "Schule.png"; // Schulische Ausbildung
 
 const riesenradImg = new Image();
-riesenradImg.src = "Riesenrad.png"; // Kenntnisse und Interessen
+riesenradImg.src = "Stadion.png"; // Kenntnisse und Interessen
 
 const waterTexture = new Image();
 waterTexture.src = "Water.png"; // Updated water texture
@@ -34,7 +34,7 @@ const boatFriction = 0.98; // Adjusted friction
 const boatMaxSpeed = 7; // Increased maximum speed
 
 // Station properties
-let stationDisplayWidth = Math.min(canvas.width, canvas.height) * 0.5; // Initial display width of the station on the canvas
+let stationDisplayWidth = Math.min(canvas.width, canvas.height) * 1; // Initial display width of the station on the canvas
 let stationDisplayHeight = stationDisplayWidth; // Initial display height of the station on the canvas
 
 // Function to resize canvas to fit the window
@@ -423,11 +423,11 @@ function checkCollisions() {
 function updateStationPositions() {
     stations[0].x = 0.2 * canvas.width; // Berufliche Erfahrung
     stations[0].y = 0.1 * canvas.height;
-    stations[1].x = 0.7 * canvas.width; // Schulische Ausbildung
+    stations[1].x = 0.6 * canvas.width; // Schulische Ausbildung
     stations[1].y = 0.1 * canvas.height;
     stations[2].x = 0.2 * canvas.width; // Ehrenamtliches Engagement
     stations[2].y = 0.6 * canvas.height;
-    stations[3].x = 0.7 * canvas.width; // Kenntnisse und Interessen
+    stations[3].x = 0.6 * canvas.width; // Kenntnisse und Interessen
     stations[3].y = 0.6 * canvas.height;
 }
 
