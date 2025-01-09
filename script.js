@@ -21,8 +21,8 @@ const waterTexture = new Image();
 waterTexture.src = "Water.png"; // Updated water texture
 
 // Boat properties
-let boatX = canvas.width / 2 - boatDisplayWidth / 2; // Start in der Mitte des Canvas
-let boatY = canvas.height / 2 - boatDisplayHeight / 2; // Start in der Mitte des Canvas
+let boatX = 0; // Wird später aktualisiert
+let boatY = 0; // Wird später aktualisiert
 const boatDisplayWidth = 80; // Display width of the boat on the canvas
 let boatDisplayHeight; // Display height will be calculated based on the image's aspect ratio
 let boatVx = 0;
@@ -48,6 +48,10 @@ function resizeCanvas() {
 
     // Update station positions
     updateStationPositions();
+
+    // Update boat position to center
+    boatX = canvas.width / 2 - boatDisplayWidth / 2;
+    boatY = canvas.height / 2 - boatDisplayHeight / 2;
 }
 
 // Stations with placeholders for different sections
@@ -312,7 +316,7 @@ function updateBoat() {
     const speed = Math.sqrt(boatVx * boatVx + boatVy * boatVy);
     if (speed > boatMaxSpeed) {
         boatVx = (boatVx / speed) * boatMaxSpeed;
-        boatVy = (boatVy / speed) * boatMaxSpeed;
+        boatVy = (boatVy / speed) * boatMaxspeed;
     }
 
     // Update position
@@ -451,6 +455,14 @@ Promise.all([
     new Promise((resolve) => { riesenradImg.onload = resolve; }),
     new Promise((resolve) => { waterTexture.onload = resolve; })
 ]).then(() => {
+    // Calculate boat display height after the image is loaded
+    const aspectRatio = boatImg.naturalHeight / boatImg.naturalWidth;
+    boatDisplayHeight = boatDisplayWidth * aspectRatio;
+
+    // Set initial boat position to center
+    boatX = canvas.width / 2 - boatDisplayWidth / 2;
+    boatY = canvas.height / 2 - boatDisplayHeight / 2;
+
     resizeCanvas(); // Initial resize
     gameLoop();
 });
