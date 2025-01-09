@@ -63,7 +63,7 @@ body {
 /* Mobile Steuerung */
 #mobileControls {
     position: fixed;
-    top: 20px; /* Position oben links */
+    bottom: 20px; /* Position unten */
     left: 20px;
     z-index: 1000;
 }
@@ -80,7 +80,7 @@ body {
     gap: 10px;
 }
 
-#mobileControls button {
+.arrow-button {
     background-color: rgba(0, 0, 0, 0.7);
     color: white;
     border: none;
@@ -93,9 +93,10 @@ body {
     align-items: center;
     justify-content: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    touch-action: none; /* Verhindert unerwünschtes Scrollen */
 }
 
-#mobileControls button:active {
+.arrow-button:active {
     background-color: rgba(0, 0, 0, 0.9);
 }
 

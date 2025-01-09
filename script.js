@@ -34,7 +34,7 @@ const boatFriction = 0.98; // Adjusted friction
 const boatMaxSpeed = 7; // Increased maximum speed
 
 // Station properties
-let stationDisplayWidth = Math.min(canvas.width, canvas.height) * 0.2; // Initial display width of the station on the canvas
+let stationDisplayWidth = Math.min(canvas.width, canvas.height) * 0.5; // Initial display width of the station on the canvas
 let stationDisplayHeight = stationDisplayWidth; // Initial display height of the station on the canvas
 
 // Function to resize canvas to fit the window
@@ -257,23 +257,35 @@ const leftButton = document.getElementById('leftButton');
 const downButton = document.getElementById('downButton');
 const rightButton = document.getElementById('rightButton');
 
-// Show mobile controls on mobile devices
+// Touch-Events für mobile Steuerung
+upButton.addEventListener('touchstart', (e) => {
+    e.preventDefault(); // Verhindert Standardverhalten (z.B. Scrollen)
+    keys['ArrowUp'] = true;
+});
+upButton.addEventListener('touchend', () => keys['ArrowUp'] = false);
+
+leftButton.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    keys['ArrowLeft'] = true;
+});
+leftButton.addEventListener('touchend', () => keys['ArrowLeft'] = false);
+
+downButton.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    keys['ArrowDown'] = true;
+});
+downButton.addEventListener('touchend', () => keys['ArrowDown'] = false);
+
+rightButton.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    keys['ArrowRight'] = true;
+});
+rightButton.addEventListener('touchend', () => keys['ArrowRight'] = false);
+
+// Zeige mobile Steuerung nur auf mobilen Geräten
 if (/Mobi|Android/i.test(navigator.userAgent)) {
     mobileControls.classList.remove('hidden');
 }
-
-// Event listeners for mobile controls
-upButton.addEventListener('touchstart', () => keys['ArrowUp'] = true);
-upButton.addEventListener('touchend', () => keys['ArrowUp'] = false);
-
-leftButton.addEventListener('touchstart', () => keys['ArrowLeft'] = true);
-leftButton.addEventListener('touchend', () => keys['ArrowLeft'] = false);
-
-downButton.addEventListener('touchstart', () => keys['ArrowDown'] = true);
-downButton.addEventListener('touchend', () => keys['ArrowDown'] = false);
-
-rightButton.addEventListener('touchstart', () => keys['ArrowRight'] = true);
-rightButton.addEventListener('touchend', () => keys['ArrowRight'] = false);
 
 // Update boat position and angle
 function updateBoat() {
@@ -300,7 +312,7 @@ function updateBoat() {
     const speed = Math.sqrt(boatVx * boatVx + boatVy * boatVy);
     if (speed > boatMaxSpeed) {
         boatVx = (boatVx / speed) * boatMaxSpeed;
-        boatVy = (boatVy / speed) * boatMaxspeed;
+        boatVy = (boatVy / speed) * boatMaxSpeed;
     }
 
     // Update position
