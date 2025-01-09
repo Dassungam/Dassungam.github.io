@@ -16,18 +16,20 @@ body {
 }
 
 #infoPopup {
-    position: absolute;
-    top: 50%;
+    position: fixed; /* Ändere von 'absolute' zu 'fixed' */
+    top: 10%; /* Positioniere das Popup etwas weiter oben */
     left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(173, 216, 230, 0.7); /* Hellblauer, transparenter Hintergrund */
+    transform: translateX(-50%); /* Zentriere das Popup horizontal */
+    background-color: rgba(173, 216, 230, 0.9); /* Hellerer, transparenter Hintergrund */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     max-width: 90%; /* Angepasste Breite für mobile Geräte */
     width: 90%;
     font-size: 14px;
-    z-index: 1000;
+    z-index: 1000; /* Popup unter den mobilen Steuerelementen */
+    overflow-y: auto; /* Scrollen, falls der Inhalt zu groß ist */
+    max-height: 70vh; /* Begrenze die Höhe des Popups */
 }
 
 .hidden {
@@ -65,7 +67,7 @@ body {
     position: fixed;
     bottom: 20px; /* Position unten */
     left: 20px;
-    z-index: 1000;
+    z-index: 1001; /* Höher als das Popup, um sicherzustellen, dass es sichtbar bleibt */
 }
 
 .arrow-container {
