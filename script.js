@@ -23,7 +23,7 @@ waterTexture.src = "Water.png"; // Updated water texture
 // Boat properties
 let boatX = 0; // Wird später aktualisiert
 let boatY = 0; // Wird später aktualisiert
-const boatDisplayWidth = 80; // Display width of the boat on the canvas
+const boatDisplayWidth = 110; // Display width of the boat on the canvas
 let boatDisplayHeight; // Display height will be calculated based on the image's aspect ratio
 let boatVx = 0;
 let boatVy = 0;
